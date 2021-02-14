@@ -5,9 +5,7 @@ import Main from "./Main/index";
 const Weather = () => {
   return (
     <div>
-      <Main>
-        <Panel />
-      </Main>
+      <Main>{/* <Panel /> */}</Main>
     </div>
   );
 };

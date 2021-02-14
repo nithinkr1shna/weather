@@ -5,8 +5,10 @@ import Header from "../components/Header";
 const AppLayout = ({ mode, children }) => {
   return (
     <div className={`${theme(mode)} min-h-screen w-full`}>
-      <Header />
-      {children}
+      <div className="p-5">
+        <Header />
+        {children}
+      </div>
     </div>
   );
 };

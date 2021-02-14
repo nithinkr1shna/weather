@@ -3,7 +3,7 @@ import Toggle from "./Toggle";
 
 const Header = () => {
   return (
-    <div>
+    <div className="flex justify-end">
       <Toggle />
     </div>
   );
