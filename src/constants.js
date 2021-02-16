@@ -6,7 +6,12 @@ export const themeDark = () => {
     theme: DARK,
     styles: {
       text: {
-        class: "text-white"
+        colorPrimary: {
+          class: "text-white"
+        },
+        colorSecondary: {
+          class: "text-gray-400"
+        }
       },
       bgColor: {
         class: "bg-gray-800"
@@ -20,7 +25,12 @@ export const themeLight = () => {
     theme: LIGHT,
     styles: {
       text: {
-        class: "text-gray-600"
+        colorPrimary: {
+          class: "text-gray-600"
+        },
+        colorSecondary: {
+          class: "text-gray-400"
+        }
       },
       bgColor: {
         class: "bg-gray-100"

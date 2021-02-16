@@ -7,7 +7,7 @@ import {
   setLocation
 } from "../../../redux/actions/locationActions";
 import { getWeatherInformation } from "../../../adapters";
-import LocationName from "./LocationName";
+import LocationNameAndTime from "./LocationNameAndTIme";
 
 const Location = ({ dispatch, coordinates, location, mode }) => {
   useEffect(() => {
@@ -60,7 +60,7 @@ const Location = ({ dispatch, coordinates, location, mode }) => {
 
   return (
     <div>
-      <LocationName name={location.name} styles={styles} />
+      <LocationNameAndTime name={location.name} styles={styles} />
     </div>
   );
 };
