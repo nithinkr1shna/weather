@@ -4,18 +4,13 @@ import Header from "../components/Header";
 
 const AppLayout = ({ mode, children }) => {
   return (
-    <div className={`${theme(mode)} min-h-screen w-full`}>
+    <div className={`${mode.styles.bgColor.class} min-h-screen w-full`}>
       <div className="p-5">
         <Header />
         {children}
       </div>
     </div>
   );
-};
-
-const theme = mode => {
-  if (mode == "dark") return "bg-gray-800";
-  return "bg-gray-100";
 };
 
 const mapStateToProps = state => ({
