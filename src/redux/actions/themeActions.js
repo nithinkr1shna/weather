@@ -1,9 +1,16 @@
-import { DARK, LIGHT } from "../../constants";
+import { DARK, LIGHT, themeLight, themeDark } from "../../constants";
 import { TOGGLE } from "../constants/action-types";
 
-export const toggleTheme = mode => ({
+export const toggleTheme = theme => ({
   type: TOGGLE,
   payload: {
-    mode: mode
+    mode: generateModeAndStyle(theme)
   }
 });
+
+const generateModeAndStyle = theme => {
+  if (theme === LIGHT) {
+    return themeDark();
+  }
+  return themeLight();
+};
