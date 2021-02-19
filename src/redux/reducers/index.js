@@ -1,32 +1,39 @@
 import {
   TOGGLE,
   SET_LOCATION,
-  SET_COORDINATES
+  SET_COORDINATES,
+  SET_LOCATION_CLICKED
 } from "../constants/action-types";
-import { DARK, LIGHT, themeDark } from "../../constants";
+import { themeDark } from "../../constants";
 
 const initialState = {
   mode: themeDark(),
-  location: null
+  location: null,
+  locationClicked: false
 };
 
 function rootReducer(state = initialState, action) {
-  if (action.type === TOGGLE) {
-    return Object.assign({}, state, {
-      mode: action.payload.mode
-    });
+  switch (action.type) {
+    case TOGGLE:
+      return Object.assign({}, state, {
+        mode: action.payload.mode
+      });
+    case SET_COORDINATES:
+      return Object.assign({}, state, {
+        coordinates: action.payload.coordinates
+      });
+    case SET_LOCATION:
+      return Object.assign({}, state, {
+        location: action.payload.location,
+        locationClicked: false
+      });
+    case SET_LOCATION_CLICKED:
+      return Object.assign({}, state, {
+        locationClicked: !state.locationClicked
+      });
+    default:
+      return state;
   }
-  if (action.type === SET_COORDINATES) {
-    return Object.assign({}, state, {
-      coordinates: action.payload.coordinates
-    });
-  }
-  if (action.type === SET_LOCATION) {
-    return Object.assign({}, state, {
-      location: action.payload.location
-    });
-  }
-  return state;
 }
 
 export default rootReducer;
