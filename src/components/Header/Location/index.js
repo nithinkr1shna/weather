@@ -52,15 +52,11 @@ const Location = ({ dispatch, coordinates, location, mode }) => {
     );
   };
 
-  console.log(location);
-
-  if (!location) return " ";
-
   const { styles } = mode;
 
   return (
     <div>
-      <LocationNameAndTime name={location.name} styles={styles} />
+      <LocationNameAndTime name={location && location.name} styles={styles} />
     </div>
   );
 };

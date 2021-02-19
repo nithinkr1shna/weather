@@ -1,13 +1,26 @@
 import React from "react";
-import Panel from "./Panel/index";
+import { connect } from "react-redux";
 import Main from "./Main/index";
+import SearchBar from "./SearchBar/index";
+import * as R from "ramda";
 
-const Weather = () => {
+const Weather = ({ location }) => {
+  return <Main>{R.isNil(location) && searchBar()}</Main>;
+};
+
+const searchBar = () => {
   return (
-    <div>
-      <Main>{/* <Panel /> */}</Main>
+    <div className="flex h-96">
+      <div className="m-auto">
+        <SearchBar />
+      </div>
     </div>
   );
 };
 
-export default Weather;
+const mapStateToProps = state => ({
+  coordinates: state.coordinates,
+  location: state.location
+});
+
+export default connect(mapStateToProps)(Weather);
