@@ -2,26 +2,25 @@ import React from "react";
 import { connect } from "react-redux";
 import Main from "./Main/index";
 import SearchBar from "./SearchBar/index";
+import * as R from "ramda";
 
-const Weather = ({ mode, coordinates }) => {
-  return (
-    <Main>{coordinates && !coordinates.success ? searchBar(mode) : null}</Main>
-  );
+const Weather = ({ location }) => {
+  return <Main>{R.isNil(location) && searchBar()}</Main>;
 };
 
-const searchBar = mode => {
+const searchBar = () => {
   return (
     <div className="flex h-96">
       <div className="m-auto">
-        <SearchBar mode={mode} />
+        <SearchBar />
       </div>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  mode: state.mode,
-  coordinates: state.coordinates
+  coordinates: state.coordinates,
+  location: state.location
 });
 
 export default connect(mapStateToProps)(Weather);

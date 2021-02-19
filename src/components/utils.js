@@ -1,3 +1,5 @@
+import * as R from "ramda";
+
 export const getGeoLocation = async (
   success,
   error,
@@ -8,4 +10,8 @@ export const getGeoLocation = async (
   }
 ) => {
   await navigator.geolocation.getCurrentPosition(success, error, options);
+};
+
+export const validateNotEmpty = value => {
+  return R.not(R.isEmpty(value));
 };
