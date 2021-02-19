@@ -1,13 +1,27 @@
 import React from "react";
-import Panel from "./Panel/index";
+import { connect } from "react-redux";
 import Main from "./Main/index";
+import SearchBar from "./SearchBar/index";
 
-const Weather = () => {
+const Weather = ({ mode, coordinates }) => {
   return (
-    <div>
-      <Main>{/* <Panel /> */}</Main>
+    <Main>{coordinates && !coordinates.success ? searchBar(mode) : null}</Main>
+  );
+};
+
+const searchBar = mode => {
+  return (
+    <div className="flex h-96">
+      <div className="m-auto">
+        <SearchBar mode={mode} />
+      </div>
     </div>
   );
 };
 
-export default Weather;
+const mapStateToProps = state => ({
+  mode: state.mode,
+  coordinates: state.coordinates
+});
+
+export default connect(mapStateToProps)(Weather);

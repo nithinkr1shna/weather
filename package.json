@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
+    "file-loader": "^6.2.0",
     "postcss": "^7.0.35",
     "postcss-cli": "^8.3.1",
     "react": "^17.0.1",
